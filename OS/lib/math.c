@@ -1,3 +1,42 @@
+/*
+* Basic mathematical library of the kernel.
+*
+* Implements essential mathematical functions without depending
+* on the system's standard library, allowing their use in
+* bare-metal environments and during the initial phases of the kernel.
+*
+* Available functions:
+* - sin(), cos(), tan()
+* - sqrt()
+* - powi()
+* - ln(), log10()
+* - fabs_simple()
+* - atof_simple()
+*
+* Some functions use numerical approximations and mathematical series
+* to reduce external dependencies.
+*/
+
+/*
+* Biblioteca matemática básica do kernel.
+*
+* Implementa funções matemáticas essenciais sem depender
+* da biblioteca padrão do sistema, permitindo seu uso em
+* ambientes bare-metal e durante as fases iniciais do kernel.
+*
+* Funções disponíveis:
+* - sin(), cos(), tan()
+* - sqrt()
+* - powi()
+* - ln(), log10()
+* - fabs_simple()
+* - atof_simple()
+*
+* Algumas funções utilizam aproximações numéricas e séries
+* matemáticas para reduzir dependências externas.
+*/
+
+
 /* ========================= */
 /* MATH */
 /* ========================= */

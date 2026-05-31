@@ -1,4 +1,5 @@
-// stdio.c Header
+// Define Prints(Int and Float)
+//Define Print(Inteiros(int) e Flutuantes(float)
 
 #ifndef STDIO_H
 #define STDIO_H

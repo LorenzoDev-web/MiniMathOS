@@ -1,3 +1,37 @@
+/*
+* Parser and evaluator of mathematical expressions.
+*
+* Implements a recursive interpreter capable of analyzing
+* and calculating numerical expressions used by scripts.
+*
+* Supported features:
+* - Operators: +, -, *, /
+* - Parentheses
+* - Numeric variables
+* - Mathematical functions
+* (sin, cos, tan, sqrt, pow, ln, abs)
+*
+* The parser respects standard mathematical precedence and
+* returns the result of the expression as a float.
+*/
+
+/*
+* Parser e avaliador de expressões matemáticas.
+*
+* Implementa um interpretador recursivo capaz de analisar
+* e calcular expressões numéricas utilizadas pelos scripts.
+*
+* Recursos suportados:
+* - Operadores: +, -, *, /
+* - Parênteses
+* - Variáveis numéricas
+* - Funções matemáticas
+* (sin, cos, tan, sqrt, pow, ln, abs)
+*
+* O parser respeita a precedência matemática padrão e
+* retorna o resultado da expressão como float.
+*/
+
 #include "../lib/math.h"
 #include "../kernel/panic.h"
 #include "../script/runtime.h"

@@ -1,3 +1,31 @@
+/*
+* Script interpreter runtime.
+*
+* Defines the data structures used during the
+* execution of programs, including:
+*
+* - Numeric variables.
+* - Labels for execution jumps.
+* - Control structures for FOR loops.
+*
+* Also declares functions for variable management
+* and label lookup.
+*/
+
+/*
+* Runtime do interpretador de scripts.
+*
+* Define as estruturas de dados utilizadas durante a
+* execução dos programas, incluindo:
+*
+* - Variáveis numéricas.
+* - Labels para saltos de execução.
+* - Estruturas de controle de loops FOR.
+*
+* Também declara funções de gerenciamento de variáveis
+* e busca de labels.
+*/
+
 #ifndef RUNTIME_H
 #define RUNTIME_H
 

@@ -1,3 +1,6 @@
+// Global Variables
+// Variáveis Globais
+
 #ifndef GLOBALS_H
 #define GLOBALS_H
 

@@ -2,6 +2,9 @@
 /* STRING */
 /* ========================= */
 
+// String manipulation
+// Manipulação de strings
+
 int strcmp(char* a, char* b) {
 
     while (*a && *b) {

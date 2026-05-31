@@ -1,5 +1,5 @@
-// Global Variables
-// Variáveis Globais
+// Global Variables Header
+// Header de Variáveis Globais
 
 #ifndef GLOBALS_H
 #define GLOBALS_H

@@ -1,3 +1,5 @@
+// vars.c Header
+
 typedef struct {
 
     char name[32];

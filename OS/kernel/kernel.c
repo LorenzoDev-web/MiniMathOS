@@ -1,3 +1,6 @@
+// Main Function of the system
+// Função principal do sistema
+
 #include "../drivers/vga.h"
 #include "../drivers/io.h"
 #include "../drivers/keyboard.h"

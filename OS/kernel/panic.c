@@ -1,3 +1,29 @@
+/*
+* Kernel critical routines.
+*
+* Implements:
+* - sleep(): simple delay via busy wait.
+* - reboot(): system reboot via keyboard controller.
+* - panic(): handling of fatal kernel errors.
+*
+* In case of unrecoverable failure, panic() displays an error
+* message on the screen, attempts to restart the machine, and,
+* if that is not possible, permanently halts CPU execution.
+*/
+
+/*
+* Rotinas críticas do kernel.
+*
+* Implementa:
+* - sleep() : atraso simples por espera ocupada (busy wait).
+* - reboot() : reinicialização do sistema via controlador de teclado.
+* - panic() : tratamento de erros fatais do kernel.
+*
+* Em caso de falha irrecuperável, panic() exibe uma mensagem
+* de erro na tela, tenta reiniciar a máquina e, caso isso não
+* seja possível, interrompe permanentemente a execução da CPU.
+*/
+
 #include "../include/types.h"
 #include "../drivers/io.h"
 #include "../drivers/vga.h"

@@ -1,3 +1,27 @@
+/*
+* Management of numerical variables of the interpreter.
+*
+* Maintains a table of variables identified by name,
+* allowing to store and retrieve float type values
+* during script execution.
+*
+* Functions:
+* - set_num() : creates or updates a variable.
+* - get_num() : gets the value of a variable.
+*/
+
+/*
+* Gerenciamento de variáveis numéricas do interpretador.
+*
+* Mantém uma tabela de variáveis identificadas por nome,
+* permitindo armazenar e recuperar valores do tipo float
+* durante a execução dos scripts.
+*
+* Funções:
+* - set_num() : cria ou atualiza uma variável.
+* - get_num() : obtém o valor de uma variável.
+*/
+
 extern int strcmp(char* a, char* b);
 extern void strcpy(char* dst, char* src);
 

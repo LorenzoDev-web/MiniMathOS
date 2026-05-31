@@ -1,3 +1,5 @@
+// math.c Header
+
 #ifndef KMATH_H
 #define KMATH_H
 

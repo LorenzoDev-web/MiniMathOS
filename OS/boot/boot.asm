@@ -1,3 +1,6 @@
+;bootloader written in assembly
+;bootloader escrito em assembly
+
 global start
 extern kernel_main
 

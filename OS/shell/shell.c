@@ -1,3 +1,33 @@
+/*
+* System shell.
+*
+* Responsible for processing commands typed by the
+* user and executing the available OS functionalities.
+*
+* Supported commands:
+* - help : displays the list of commands.
+* - about : shows system information.
+* - mem : displays memory and runtime statistics.
+* - clear : clears the screen.
+* - edit : enters script editor mode.
+* - run : executes the loaded program.
+*/
+
+/*
+* Shell do sistema.
+*
+* Responsável por processar os comandos digitados pelo
+* usuário e executar as funcionalidades disponíveis do OS.
+*
+* Comandos suportados:
+* - help : exibe a lista de comandos.
+* - about : mostra informações do sistema.
+* - mem : exibe estatísticas de memória e runtime.
+* - clear : limpa a tela.
+* - edit : entra no modo editor de scripts.
+* - run : executa o programa carregado.
+*/
+
 #include "../include/globals.h"
 #include "../drivers/vga.h"
 #include "../lib/string.h"

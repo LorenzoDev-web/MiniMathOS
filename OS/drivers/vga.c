@@ -1,3 +1,19 @@
+/*
+* VGA Text Mode Driver.
+*
+* Implements text output to the VGA buffer (0xB8000),
+* including writing characters, strings, numbers,
+* screen clearing, cursor control, and scrolling.
+*/
+
+/*
+* Driver VGA Text Mode.
+*
+* Implementa saída de texto para o buffer VGA (0xB8000),
+* incluindo escrita de caracteres, strings, números,
+* limpeza de tela, controle de cursor e scroll.
+*/
+
 #include "../include/types.h"
 #include "vga.h"
 #include "../include/globals.h"

@@ -1,3 +1,27 @@
+/*
+* Management of interpreter labels.
+*
+* Scans the source code for "label" commands
+* and stores their names and positions to allow
+* execution jumps (goto/jump) during script execution.
+*
+* Functions:
+* - scan_labels(): finds and registers all labels.
+* - find_label(): searches for the position of a label by name.
+*/
+
+/*
+* Gerenciamento de labels (rótulos) do interpretador.
+*
+* Realiza a varredura do código-fonte em busca de comandos
+* "label" e armazena seus nomes e posições para permitir
+* saltos de execução (goto/jump) durante a execução do script.
+*
+* Funções:
+* - scan_labels() : encontra e registra todos os labels.
+* - find_label() : procura a posição de um label pelo nome.
+*/
+
 #include "../include/types.h"
 
 #include "../lib/string.h"

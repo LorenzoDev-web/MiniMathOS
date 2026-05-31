@@ -1,3 +1,6 @@
+// Global Variables
+// Variáveis globais
+
 #include "../include/types.h"
 
 int editing = 0;

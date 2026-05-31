@@ -1,3 +1,39 @@
+/*
+* Script executor.
+*
+* Responsible for interpreting and executing the commands
+* stored in the loaded program.
+*
+* Supported features:
+* - Printing values (print)
+* - Changing colors (color)
+* - Labels and jumps (label/goto)
+* - Drawing on the screen (plot)
+* - Numeric variables
+* - FOR/NEXT loops
+* - Mathematical expression evaluation
+*
+* Execution can be interrupted by the ESC key.
+*/
+
+/*
+* Executor de scripts.
+*
+* Responsável por interpretar e executar os comandos
+* armazenados no programa carregado.
+*
+* Recursos suportados:
+* - Impressão de valores (print)
+* - Alteração de cores (color)
+* - Labels e saltos (label/goto)
+* - Desenho na tela (plot)
+* - Variáveis numéricas
+* - Loops FOR/NEXT
+* - Avaliação de expressões matemáticas
+*
+* A execução pode ser interrompida pela tecla ESC.
+*/
+
 #include "../include/types.h"
 
 #include "../drivers/vga.h"

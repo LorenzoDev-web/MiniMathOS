@@ -41,10 +41,6 @@
 /* MATH */
 /* ========================= */
 
-/* ========================= */
-/* MATH */
-/* ========================= */
-
 float sin(float x) {
 
     while (x > 3.14159265f)
@@ -149,6 +145,11 @@ float ln(float x) {
         term *= y2;
     }
 
+    while (x > 2.0f) {
+        x *= 0.5f;
+        result += 0.69314718f;
+    }
+
     return 2.0f * result;
 }
 
@@ -157,7 +158,7 @@ float log10(float x) {
     return ln(x) / 2.30258509f;
 }
 
-static inline float fabs_simple(float x) {
+float fabs_simple(float x) {
 
     if (x < 0.0f)
         return -x;
@@ -216,4 +217,5 @@ float atof_simple(char* s) {
 
     return result;
 }
+
 

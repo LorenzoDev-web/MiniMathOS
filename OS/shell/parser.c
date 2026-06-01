@@ -36,9 +36,14 @@
 #include "../kernel/panic.h"
 #include "../script/runtime.h"
 #include "../lib/string.h"
+#include "../include/types.h"
 
 extern float get_num(char* name);
 extern void set_num(char* name, float value);
+
+#define STACK_MAGIC 0xDEADBEEF
+
+u32 kernel_stack_guard = STACK_MAGIC;
 
 
 /* ========================= */
@@ -352,6 +357,12 @@ float parse_term() {
 
                 panic("DE: DIVIDE ERROR");
             }
+
+            if (kernel_stack_guard != STACK_MAGIC) {
+                panic("STACK OVERFLOW");
+            }
+
+            
 
             v /= d;
         }

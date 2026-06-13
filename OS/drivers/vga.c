@@ -127,11 +127,40 @@ void putc(char c) {
     x++;
 }
 
-void print(char* s) {
+void print(const char* s) {
 
     while (*s)
         putc(*s++);
 }
+
+
+void print_hex(uint32_t value)
+{
+    char buf[11];
+    const char* hex = "0123456789ABCDEF";
+
+    buf[0] = '0';
+    buf[1] = 'x';
+
+    for (int i = 0; i < 8; i++) {
+        buf[9 - i] = hex[value & 0xF];
+        value >>= 4;
+    }
+
+    buf[10] = '\0';
+
+    print(buf);
+}
+
+void print_reg(const char* name, uint32_t value)
+{
+    print(name);
+    print(": 0x");
+
+    print_hex(value);   // você precisa ter isso
+    print("\n");
+}
+
 
 int strlen(char* s) {
 

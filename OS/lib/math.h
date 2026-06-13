@@ -19,4 +19,6 @@ float fabs_simple(float x);
 
 float atof_simple(char* s);
 
+float lim_expr(char* expr, float a);
+
 #endif

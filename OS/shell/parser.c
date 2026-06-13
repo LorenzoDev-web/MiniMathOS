@@ -41,9 +41,6 @@
 extern float get_num(char* name);
 extern void set_num(char* name, float value);
 
-#define STACK_MAGIC 0xDEADBEEF
-
-u32 kernel_stack_guard = STACK_MAGIC;
 
 
 /* ========================= */
@@ -292,6 +289,41 @@ float parse_factor() {
         return fabs_simple(v);
     }
 
+    if (
+    expr_ptr[0] == 'l' &&
+    expr_ptr[1] == 'i' &&
+    expr_ptr[2] == 'm'
+    ) {
+        expr_ptr += 3;
+
+        skip_spaces();
+
+        if (*expr_ptr == '(')
+            expr_ptr++;
+
+        char expr[256];
+        int i = 0;
+
+        while (*expr_ptr &&
+            *expr_ptr != ',' &&
+            *expr_ptr != ')')
+        {
+            expr[i++] = *expr_ptr++;
+        }
+
+        expr[i] = 0;
+
+        if (*expr_ptr == ',')
+            expr_ptr++;
+
+        float ponto = parse_expr();
+
+        if (*expr_ptr == ')')
+            expr_ptr++;
+
+        return lim_expr(expr, ponto);
+    }
+
  
     /* VARIABLE */
 
@@ -355,12 +387,10 @@ float parse_term() {
                 d <  0.00001f
             ) {
 
-                panic("DE: DIVIDE ERROR");
+                panic("DE: Divide Error __ Vector 0");
             }
 
-            if (kernel_stack_guard != STACK_MAGIC) {
-                panic("STACK OVERFLOW");
-            }
+           
 
             
 
@@ -414,3 +444,4 @@ float eval(char* s) {
 
     return parse_expr();
 }
+

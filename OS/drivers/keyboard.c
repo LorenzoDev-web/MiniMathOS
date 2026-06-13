@@ -199,3 +199,7 @@ void keyboard_poll() {
         }
     }
 }
+
+int keyboard_ready() {
+    return 1;
+}

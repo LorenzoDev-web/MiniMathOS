@@ -36,7 +36,6 @@
 * matemáticas para reduzir dependências externas.
 */
 
-
 /* ========================= */
 /* MATH */
 /* ========================= */
@@ -217,5 +216,118 @@ float atof_simple(char* s) {
 
     return result;
 }
+
+/*================*/
+// FUNCTION
+/*================*/
+
+char* p;
+float valor_x;
+
+static float parse_expr();
+static float parse_term();
+static float parse_factor();
+static float parse_number();
+
+static float parse_number() {
+    char buffer[64];
+    int i = 0;
+
+    while ((*p >= '0' && *p <= '9') || *p == '.') {
+        buffer[i++] = *p++;
+    }
+
+    buffer[i] = 0;
+
+    return atof_simple(buffer);
+}
+
+static float parse_factor() {
+
+    if (*p == 'x') {
+        p++;
+        return valor_x;
+    }
+
+    if (*p == '(') {
+
+        p++;
+
+        float r = parse_expr();
+
+        if (*p == ')')
+            p++;
+
+        return r;
+    }
+
+    return parse_number();
+}
+
+static float parse_term() {
+
+    float r = parse_factor();
+
+    while (*p == '*' || *p == '/') {
+
+        char op = *p++;
+
+        float b = parse_factor();
+
+        if (op == '*')
+            r *= b;
+        else
+            r /= b;
+    }
+
+    return r;
+}
+
+static float parse_expr() {
+
+    float r = parse_term();
+
+    while (*p == '+' || *p == '-') {
+
+        char op = *p++;
+
+        float b = parse_term();
+
+        if (op == '+')      // <-- corrigido
+            r += b;
+        else
+            r -= b;
+    }
+
+    return r;
+}
+
+static float available(char* expr, float x) {
+
+    p = expr;
+    valor_x = x;
+
+    return parse_expr();
+}
+
+
+/*================*/
+// LIM (LIMIT)
+/*================*/
+
+float lim_expr(char* expr, float a);
+
+
+float lim_expr(char* expr, float a)
+{
+    float h = 0.0001f;
+
+    float left = available(expr, a - h);
+    float right  = available(expr, a + h);
+
+    return (left + right) * 0.5f;
+}
+
+
 
 

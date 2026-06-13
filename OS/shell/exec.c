@@ -34,6 +34,7 @@
 * A execução pode ser interrompida pela tecla ESC.
 */
 
+
 #include "../include/types.h"
 
 #include "../drivers/vga.h"
@@ -51,6 +52,7 @@
 
 #include "../lib/stdio.h"
 #include "../include/globals.h"
+
 
 extern void print_float(float f);
 
@@ -397,6 +399,7 @@ void execute_program() {
                     }
                 }
             }
+
 
             /* ========================= */
             /* ASSIGNMENT */

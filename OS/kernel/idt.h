@@ -23,5 +23,6 @@ typedef struct {
 } __attribute__((packed)) IDTPointer;
 
 void idt_init();
+int idt_ready();
 
 #endif

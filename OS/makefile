@@ -1,7 +1,7 @@
 CC=gcc
 ASM=nasm
 
-CFLAGS=-ffreestanding -m32 -O2 -Wall -Wextra -fno-pie
+CFLAGS=-ffreestanding -m32 -Wall -Wextra -fno-pie
 LDFLAGS=-m32 -T linker.ld -ffreestanding -nostdlib -fno-pie -no-pie
 
 C_SOURCES=$(shell find . -name "*.c")

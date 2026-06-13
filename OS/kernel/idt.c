@@ -45,4 +45,9 @@ void idt_set_gate(int n, u32 handler) {
 
     idt[n].offset_high =
         (handler >> 16) & 0xFFFF;
+
+}
+
+int idt_ready() {
+    return 1;
 }

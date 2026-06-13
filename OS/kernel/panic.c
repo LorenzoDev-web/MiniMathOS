@@ -24,6 +24,32 @@
 * seja possível, interrompe permanentemente a execução da CPU.
 */
 
+/*
+* Kernel critical routines.
+*
+* Implements:
+* - sleep(): simple delay via busy wait.
+* - reboot(): system reboot via keyboard controller.
+* - panic(): handling of fatal kernel errors.
+*
+* In case of unrecoverable failure, panic() displays an error
+* message on the screen, attempts to restart the machine, and,
+* if that is not possible, permanently halts CPU execution.
+*/
+
+/*
+* Rotinas críticas do kernel.
+*
+* Implementa:
+* - sleep() : atraso simples por espera ocupada (busy wait).
+* - reboot() : reinicialização do sistema via controlador de teclado.
+* - panic() : tratamento de erros fatais do kernel.
+*
+* Em caso de falha irrecuperável, panic() exibe uma mensagem
+* de erro na tela, tenta reiniciar a máquina e, caso isso não
+* seja possível, interrompe permanentemente a execução da CPU.
+*/
+
 #include "../include/types.h"
 #include "../drivers/io.h"
 #include "../drivers/vga.h"
@@ -32,11 +58,13 @@
 #include "panic.h"
 #include "../include/globals.h"
 
+
+
 void sleep() {
 
     int i;
 
-    for (i = 0; i < 900000000; i++) {
+    for (i = 0; i < 2000000000; i++) {
 
         __asm__ volatile("nop");
     }
@@ -54,7 +82,7 @@ void reboot() {
 
     volatile int i;
 
-    for (i = 0; i < 30000000; i++) {
+    for (i = 0; i < 20000000; i++) {
         __asm__ volatile("nop");
     }
 
@@ -76,8 +104,10 @@ void reboot() {
 /* PANIC */
 /*==========================*/
 
+
 __attribute__((noreturn))
 void panic(const char* s) {
+
 
     color = 0x1F;
 
@@ -93,6 +123,18 @@ void panic(const char* s) {
 
     y += 2;
 
+    u32 *ebp;
+
+    __asm__ volatile("mov %%ebp, %0" : "=r"(ebp));
+
+    print("Stack Trace:\n");
+
+    for (int i = 0; i < 10 && ebp; i++) {
+        print_hex(ebp[1]);
+        print("\n");
+        ebp = (u32*)ebp[0];
+    }
+
 
     sleep();
 
@@ -104,3 +146,10 @@ void panic(const char* s) {
         __asm__ volatile("cli; hlt");
     }
 }
+
+int panic_ready() {
+    return 1;
+}
+
+
+
